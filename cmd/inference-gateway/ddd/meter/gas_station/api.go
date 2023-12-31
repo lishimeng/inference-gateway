@@ -2,26 +2,26 @@ package gas_station
 
 import (
 	"fmt"
-	"gitee.com/alex_li/inference-gateway/internal/etc"
-	"gitee.com/alex_li/inference-gateway/internal/utils"
 	"github.com/kataras/iris/v12"
 	"github.com/lishimeng/app-starter"
 	"github.com/lishimeng/app-starter/tool"
 	"github.com/lishimeng/go-log"
+	"github.com/lishimeng/inference-gateway/internal/etc"
+	"github.com/lishimeng/inference-gateway/internal/utils"
 	"github.com/pkg/errors"
 	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
+	"time"
 )
 
 const (
-	maxSize         = 50 * iris.MB
-	uploadFormParam = "path"
+	maxSize = 50 * iris.MB
 )
 
 // upload @[]path: 路径, @[]file: 文件
-func upload(ctx iris.Context) (path, web string, err error) {
+func upload(ctx iris.Context, fileName string) (path, web string, err error) {
 
 	ctx.SetMaxRequestBodySize(maxSize)
 
@@ -60,7 +60,7 @@ func upload(ctx iris.Context) (path, web string, err error) {
 
 	var destName string
 
-	destName, err = copyFile(f, uploadRoot, destDir)
+	destName, err = copyFile(f, fileName, uploadRoot, destDir)
 	if err != nil {
 		log.Debug(errors.Wrapf(err, "save file fail:%s[%s]", destDir, destName))
 		return
@@ -76,23 +76,19 @@ func upload(ctx iris.Context) (path, web string, err error) {
 	return
 }
 
-func copyFile(f, srcDir, destDir string) (fileName string, err error) {
+func copyFile(f, fileName, srcDir, destDir string) (destName string, err error) {
 	/// 名字处理
 	ext := filepath.Ext(f)
-	src := filepath.Join(srcDir, f)
-	fileName, err = utils.FileDigest(src)
-	if err != nil {
-		return
-	}
 	fileName = fileName + ext
-	///
+	destName = fileName
 
-	dest := filepath.Join(destDir, fileName)
+	srcFullPath := filepath.Join(srcDir, f)
+	destFullPath := filepath.Join(destDir, fileName)
 
 	if err != nil {
 		return
 	}
-	err = utils.CopyFile(src, dest)
+	err = utils.CopyFile(srcFullPath, destFullPath)
 	if err != nil {
 		return
 	}
@@ -109,9 +105,9 @@ func doInference(file string, inferenceKey string) (result map[string]any, err e
 		return
 	}
 	result = make(map[string]any)
-	result["totalPrice"] = 400.00
-	result["quantity"] = 15.00
-	result["unitPrice"] = 7.99
+	result["totalPrice"] = "400.00"
+	result["quantity"] = "15.00"
+	result["unitPrice"] = "7.99"
 	return
 }
 
@@ -126,6 +122,10 @@ var reg, _ = regexp.Compile("^[-\\w]+$")
 
 func validParam(p string) bool {
 	return reg.MatchString(p)
+}
+
+func formatDate() string {
+	return time.Now().Format("20060102150405")
 }
 
 func inference(ctx iris.Context) {
@@ -143,8 +143,10 @@ func inference(ctx iris.Context) {
 		return
 	}
 
+	fileName := fmt.Sprintf("%s_%s", wxId, formatDate())
+
 	var imagePath, imageWeb string
-	imagePath, imageWeb, err = upload(ctx)
+	imagePath, imageWeb, err = upload(ctx, fileName)
 
 	inferenceResult, err := doInference(imagePath, inferenceKey)
 	if err != nil {

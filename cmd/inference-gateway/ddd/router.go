@@ -1,8 +1,8 @@
 package ddd
 
 import (
-	"gitee.com/alex_li/inference-gateway/cmd/inference-gateway/ddd/meter/gas_station"
 	"github.com/kataras/iris/v12"
+	"github.com/lishimeng/inference-gateway/cmd/inference-gateway/ddd/meter/gas_station"
 )
 
 func Route(app *iris.Application) {

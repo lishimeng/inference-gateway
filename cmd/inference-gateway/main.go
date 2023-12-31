@@ -3,12 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"gitee.com/alex_li/inference-gateway/cmd/inference-gateway/ddd"
-	"gitee.com/alex_li/inference-gateway/cmd/inference-gateway/setup"
-	"gitee.com/alex_li/inference-gateway/internal/etc"
 	"github.com/lishimeng/app-starter"
 	etc2 "github.com/lishimeng/app-starter/etc"
 	"github.com/lishimeng/go-log"
+	"github.com/lishimeng/inference-gateway/cmd/inference-gateway/ddd"
+	"github.com/lishimeng/inference-gateway/cmd/inference-gateway/setup"
+	"github.com/lishimeng/inference-gateway/internal/etc"
 	"time"
 )
 
