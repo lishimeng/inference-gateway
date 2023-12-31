@@ -1,0 +1,6 @@
+[web]
+listen = ":80"
+
+[fileSystem]
+root = "C:\\lism\\tmp\\localsend"
+domain = "https://localhost"
