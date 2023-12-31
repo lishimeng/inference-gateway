@@ -10,7 +10,7 @@ func main() {
 		buildscript.Application{
 			Name:    "inference-gateway",
 			AppPath: "cmd/inference-gateway",
-			HasUI:   true,
+			HasUI:   false,
 		},
 	)
 	if err != nil {
