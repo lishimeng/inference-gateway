@@ -45,7 +45,8 @@ func _main() (err error) {
 		log.Debug("web start on:%s", etc.Config.Web.Listen)
 
 		builder.
-			EnableWeb(etc.Config.Web.Listen, ddd.Route).SetWebLogLevel("DEBUG").
+			EnableWeb(etc.Config.Web.Listen, ddd.Route).
+			SetWebLogLevel("DEBUG").
 			ComponentBefore(setup.Setup).
 			PrintVersion()
 		return err

@@ -1,4 +1,4 @@
-package gas_station
+package inference
 
 import (
 	"fmt"
@@ -108,6 +108,7 @@ func doInference(file string, inferenceKey string) (result map[string]any, err e
 	result["totalPrice"] = "400.00"
 	result["quantity"] = "15.00"
 	result["unitPrice"] = "7.99"
+	// TODO
 	return
 }
 
