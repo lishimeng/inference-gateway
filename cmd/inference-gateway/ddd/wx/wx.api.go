@@ -28,7 +28,7 @@ func getSession(ctx iris.Context) {
 		return
 	}
 
-	session, err := Client.JsCode2Session(req.Code)
+	session, err := wechat.Service.JsCode2Session(req.Code)
 	if err != nil {
 		resp.Code = tool.RespCodeError
 		tool.ResponseJSON(ctx, resp)

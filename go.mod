@@ -7,6 +7,7 @@ require (
 	github.com/kataras/iris/v12 v12.2.7
 	github.com/lishimeng/app-starter v1.16.3
 	github.com/lishimeng/go-log v1.0.0
+	github.com/lishimeng/tianditu v1.0.0
 	github.com/pkg/errors v0.9.1
 )
 
