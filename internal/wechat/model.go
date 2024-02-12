@@ -1,5 +1,19 @@
 package wechat
 
+import "time"
+
+type ApiAccessToken struct {
+	Err
+	AccessToken string `json:"access_token"`
+	ExpiresIn   int    `json:"expires_in"`
+	ExpiresAt   int64  `json:"expires_at"`
+}
+
+// Expired 判断token是否过期
+func (a *ApiAccessToken) Expired() bool {
+	return a.ExpiresAt < time.Now().Unix()
+}
+
 type UserInfo struct {
 	Openid string
 }
@@ -30,4 +44,21 @@ type OpenInfo struct {
 type Err struct {
 	ErrCode int    `json:"errcode,omitempty"`
 	ErrMsg  string `json:"errmsg,omitempty"`
+}
+
+type PhoneNumResp struct {
+	Err
+	PhoneInfo PhoneInfo `json:"phone_info,omitempty"` // 用户手机号信息
+}
+
+type PhoneWaterMarker struct {
+	Timestamp int64  `json:"timestamp,omitempty"` // 用户获取手机号操作的时间戳
+	Appid     string `json:"appid,omitempty"`     //小程序appid
+}
+
+type PhoneInfo struct {
+	PhoneNumber     string           `json:"phoneNumber,omitempty"`     // 用户绑定的手机号（国外手机号会有区号）
+	PurePhoneNumber string           `json:"purePhoneNumber,omitempty"` // 没有区号的手机号
+	CountryCode     string           `json:"countryCode,omitempty"`     // 区号
+	Watermark       PhoneWaterMarker `json:"watermark,omitempty"`       // 数据水印
 }
