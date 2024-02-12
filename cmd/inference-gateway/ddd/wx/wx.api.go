@@ -42,7 +42,8 @@ func getSession(ctx iris.Context) {
 }
 
 type BindPhoneReq struct {
-	Code string `json:"code,omitempty"`
+	Code    string `json:"code,omitempty"`
+	UnionId string `json:"unionId,omitempty"`
 }
 
 func bindPhone(ctx iris.Context) {
@@ -65,6 +66,12 @@ func bindPhone(ctx iris.Context) {
 		tool.ResponseJSON(ctx, resp)
 		return
 	}
+	if len(req.UnionId) == 0 {
+		log.Info("union_id empty")
+		resp.Code = tool.RespCodeNotFound
+		tool.ResponseJSON(ctx, resp)
+		return
+	}
 	log.Info("get phone number from wx, code:" + req.Code)
 	result, err := wechat.Service.GetPhoneNumber(req.Code)
 	if err != nil {
@@ -78,6 +85,7 @@ func bindPhone(ctx iris.Context) {
 	u, _ := users.AddUser(users.User{
 		Uid:         phone + ".1024",
 		PhoneNumber: phone,
+		UnionId:     req.UnionId,
 	})
 	log.Info("add dummy user:" + u.Uid)
 	resp.Code = tool.RespCodeSuccess

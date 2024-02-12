@@ -5,6 +5,7 @@ import "errors"
 type User struct {
 	Uid         string
 	PhoneNumber string
+	UnionId     string
 }
 
 var Store = make(map[string]User)
