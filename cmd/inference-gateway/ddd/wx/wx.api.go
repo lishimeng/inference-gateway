@@ -6,7 +6,7 @@ import (
 	"github.com/lishimeng/app-starter/tool"
 	"github.com/lishimeng/go-log"
 	"github.com/lishimeng/inference-gateway/internal/users"
-	"github.com/lishimeng/inference-gateway/internal/wechat"
+	"github.com/lishimeng/wechat"
 )
 
 type Req struct {
@@ -30,7 +30,7 @@ func getSession(ctx iris.Context) {
 		return
 	}
 
-	session, err := wechat.Service.JsCode2Session(req.Code)
+	session, err := Service.JsCode2Session(req.Code)
 	if err != nil {
 		resp.Code = tool.RespCodeError
 		tool.ResponseJSON(ctx, resp)
@@ -73,7 +73,7 @@ func bindPhone(ctx iris.Context) {
 		return
 	}
 	log.Info("get phone number from wx, code:" + req.Code)
-	result, err := wechat.Service.GetPhoneNumber(req.Code)
+	result, err := Service.GetPhoneNumber(req.Code)
 	if err != nil {
 		log.Info(err)
 		resp.Code = tool.RespCodeNotFound
