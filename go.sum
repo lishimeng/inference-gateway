@@ -177,8 +177,8 @@ github.com/google/pprof v0.0.0-20201218002935-b9804c9f04c2/go.mod h1:kpwsk12EmLe
 github.com/google/pprof v0.0.0-20210407192527-94a9f03dee38/go.mod h1:kpwsk12EmLew5upagYY7GY0pfYCcupk39gWOCRROcvE=
 github.com/google/renameio v0.1.0/go.mod h1:KWCgfxg9yswjAJkECMjeO8J8rahYeXnNhOm40UhjYkI=
 github.com/google/uuid v1.1.2/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
-github.com/google/uuid v1.3.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+vpHVxEJEs9eg=
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
 github.com/googleapis/google-cloud-go-testing v0.0.0-20200911160855-bcd43fbb19e8/go.mod h1:dvDLG8qkwmyD9a/MJJN3XJcT3xFxOKAvTZGvuZmac9g=
@@ -243,12 +243,12 @@ github.com/lishimeng/go-app-shutdown v1.0.1 h1:2tfKpJHSsM8NUm0nVPq1QvDCiVNsJgUtx
 github.com/lishimeng/go-app-shutdown v1.0.1/go.mod h1:t6IWDp1O20Ppmyrftos+/FeZRIkuX/htRT6aAmnSuvM=
 github.com/lishimeng/go-log v1.0.0 h1:f4EVvzYfuaNRQVDAlfIfPpGmsnElWbdCRFFy2GoyqtQ=
 github.com/lishimeng/go-log v1.0.0/go.mod h1:hks9J+MpGLNmJ48oxvfoxHN6v+jhUIHi3a7dweRa8OQ=
+github.com/lishimeng/go-sdk v1.1.0 h1:S//QMwdQQ943W5lYWjo1Tl/QjZ4/CJ++bsR4M3FENk8=
+github.com/lishimeng/go-sdk v1.1.0/go.mod h1:fIOqDDNBaPwbISz3pHQg36349i+Ia8hkB6Qk/HINGYk=
 github.com/lishimeng/log4go v1.0.0 h1:oQMcyx/jby6jVCZ4ywnMP+tvZoRL4L3sKYktxTX0DFQ=
 github.com/lishimeng/log4go v1.0.0/go.mod h1:7CZh60epG3cgLa4RpxzFRzYVbQzp7lXmBMlMho1cRbE=
-github.com/lishimeng/tianditu v1.0.0 h1:JtKDw8r5LQkBBTuFa5XGvgDcQ+cxdZDpnBL5US+GQqE=
-github.com/lishimeng/tianditu v1.0.0/go.mod h1:hizolb4qPUrwulkiyaMVtFDqgPcnu5WMNTg3pGJjLGI=
-github.com/lishimeng/wechat v1.0.0 h1:obcuYcQNZyCRbDgOK0xuzpgQt3p/1/JHB1fRsQnW8KY=
-github.com/lishimeng/wechat v1.0.0/go.mod h1:GqXBILw8HJ3BW1sHGcnRT5zLIHbgh08SRiZtwh5pt0s=
+github.com/lishimeng/x v1.0.0 h1:/VlQBZMDomlWxoIgFFD28mrBJJC1mTxrdin4IRy7gAY=
+github.com/lishimeng/x v1.0.0/go.mod h1:rqREd1QJPRJLSAshhCYlWVKNYI6JEAJHD5a/hlsCUow=
 github.com/magiconair/properties v1.8.7 h1:IeQXZAiQcpL9mgcAe1Nu6cX9LLw6ExEHKjN0VQdvPDY=
 github.com/magiconair/properties v1.8.7/go.mod h1:Dhd985XPs7jluiymwWYZ0G4Z61jb3vdS329zhj2hYo0=
 github.com/mailgun/raymond/v2 v2.0.48 h1:5dmlB680ZkFG2RN/0lvTAghrSxIESeu9/2aeDqACtjw=

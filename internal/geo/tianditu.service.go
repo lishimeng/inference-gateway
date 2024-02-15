@@ -1,6 +1,6 @@
 package geo
 
-import "github.com/lishimeng/tianditu"
+import "github.com/lishimeng/go-sdk/tianditu"
 
 var client tianditu.Client
 

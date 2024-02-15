@@ -6,8 +6,7 @@ require (
 	github.com/kataras/iris/v12 v12.2.7
 	github.com/lishimeng/app-starter v1.16.3
 	github.com/lishimeng/go-log v1.0.0
-	github.com/lishimeng/tianditu v1.0.0
-	github.com/lishimeng/wechat v1.0.0
+	github.com/lishimeng/go-sdk v1.1.0
 	github.com/pkg/errors v0.9.1
 )
 
@@ -30,7 +29,7 @@ require (
 	github.com/go-resty/resty/v2 v2.11.0 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/gomarkdown/markdown v0.0.0-20230922112808-5421fefb8386 // indirect
-	github.com/google/uuid v1.3.1 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/css v1.0.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
@@ -47,6 +46,7 @@ require (
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/lishimeng/go-app-shutdown v1.0.1 // indirect
 	github.com/lishimeng/log4go v1.0.0 // indirect
+	github.com/lishimeng/x v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mailgun/raymond/v2 v2.0.48 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect

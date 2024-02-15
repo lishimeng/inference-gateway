@@ -2,10 +2,10 @@ package setup
 
 import (
 	"context"
+	"github.com/lishimeng/go-sdk/wechat"
 	"github.com/lishimeng/inference-gateway/cmd/inference-gateway/ddd/wx"
 	"github.com/lishimeng/inference-gateway/internal/etc"
 	"github.com/lishimeng/inference-gateway/internal/geo"
-	"github.com/lishimeng/wechat"
 )
 
 func Setup(ctx context.Context) (err error) {

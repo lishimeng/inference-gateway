@@ -5,8 +5,8 @@ import (
 	"github.com/lishimeng/app-starter"
 	"github.com/lishimeng/app-starter/tool"
 	"github.com/lishimeng/go-log"
+	"github.com/lishimeng/go-sdk/wechat"
 	"github.com/lishimeng/inference-gateway/internal/users"
-	"github.com/lishimeng/wechat"
 )
 
 type Req struct {

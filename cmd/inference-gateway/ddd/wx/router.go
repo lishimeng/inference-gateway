@@ -2,7 +2,7 @@ package wx
 
 import (
 	"github.com/kataras/iris/v12"
-	"github.com/lishimeng/wechat"
+	"github.com/lishimeng/go-sdk/wechat"
 )
 
 var Service *wechat.Client
