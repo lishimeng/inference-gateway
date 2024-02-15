@@ -19,5 +19,5 @@ func initTianditu(_ context.Context) {
 }
 
 func initWx() {
-	wx.Service = wechat.New(etc.Config.Wx.Appid, etc.Config.Wx.Secret) // 初始化微信服务
+	wx.Client = wechat.New(etc.Config.Wx.Appid, etc.Config.Wx.Secret) // 初始化微信服务
 }

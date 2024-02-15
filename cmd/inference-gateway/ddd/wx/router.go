@@ -5,7 +5,7 @@ import (
 	"github.com/lishimeng/go-sdk/wechat"
 )
 
-var Service *wechat.Client
+var Client *wechat.Client
 
 func Route(root iris.Party) {
 	root.Post("/js_session", getSession)
