@@ -8,6 +8,7 @@ import (
 var Client *wechat.Client
 
 func Route(root iris.Party) {
-	root.Post("/js_session", getSession)
-	root.Post("/bind_phone_number", bindPhone)
+	root.Post("/login", login)
+	root.Post("/register", register)
+	root.Post("/bind_phone_number", dummy)
 }

@@ -1,10 +1,13 @@
 package wx
 
 import (
+	"fmt"
 	"github.com/kataras/iris/v12"
 	"github.com/lishimeng/app-starter"
 	"github.com/lishimeng/app-starter/tool"
 	"github.com/lishimeng/go-sdk/wechat"
+	"github.com/lishimeng/inference-gateway/internal/etc"
+	"github.com/lishimeng/x/rest"
 )
 
 type Req struct {
@@ -22,7 +25,12 @@ type Resp struct {
 	UserToken        // 用户信息
 }
 
-func getSession(ctx iris.Context) {
+type ProfileFetchResp struct {
+	app.Response
+	UserCode string `json:"userCode,omitempty"`
+}
+
+func login(ctx iris.Context) {
 
 	var err error
 	var req Req
@@ -41,7 +49,15 @@ func getSession(ctx iris.Context) {
 		return
 	}
 
-	// TODO 检查profile, 如果不存在则创建
+	// TODO 检查profile
+	unionId := session.UnionId
+	var pResp ProfileFetchResp
+	code, err := rest.Fetch(etc.Config.Service.Profile, fmt.Sprintf("api/profile/%s", unionId), nil, &pResp)
+	if err != nil || code != 200 {
+		// TODO 没有profile, 新线程创建profile
+	} else {
+		// 有profile, 创建token
+	}
 
 	resp.JsSession = session
 	resp.Code = tool.RespCodeSuccess

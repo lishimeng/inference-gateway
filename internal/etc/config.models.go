@@ -7,6 +7,11 @@ type Configuration struct {
 	FileSystem fileSystem `toml:"fileSystem"`
 	Geo        geo        `toml:"geo"`
 	Wx         wx         `toml:"wx"`
+	Service    service    `toml:"service"`
+}
+
+type service struct {
+	Profile string `toml:"profile"`
 }
 type wx struct {
 	Appid  string `toml:"appid"`

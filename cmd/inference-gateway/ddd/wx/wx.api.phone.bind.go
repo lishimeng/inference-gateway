@@ -6,6 +6,7 @@ import (
 	"github.com/lishimeng/app-starter/tool"
 	"github.com/lishimeng/go-log"
 	"github.com/lishimeng/inference-gateway/internal/users"
+	"github.com/lishimeng/x/util"
 )
 
 type BindPhoneReq struct {
@@ -13,7 +14,7 @@ type BindPhoneReq struct {
 	UnionId string `json:"unionId,omitempty"`
 }
 
-func bindPhone(ctx iris.Context) {
+func register(ctx iris.Context) {
 	var req BindPhoneReq
 	var err error
 	var resp app.Response
@@ -48,9 +49,10 @@ func bindPhone(ctx iris.Context) {
 		return
 	}
 	log.Info(result)
+	var uid = util.UUIDString()
 	var phone = result.PhoneInfo.PurePhoneNumber
 	u, _ := users.AddUser(users.User{
-		Uid:         phone + ".1024",
+		Uid:         uid,
 		PhoneNumber: phone,
 		UnionId:     req.UnionId,
 	})
@@ -58,4 +60,7 @@ func bindPhone(ctx iris.Context) {
 	resp.Code = tool.RespCodeSuccess
 	resp.Message = u.Uid
 	tool.ResponseJSON(ctx, resp)
+}
+func dummy(ctx iris.Context) {
+
 }
